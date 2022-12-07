@@ -155,9 +155,9 @@ exp.get('/dingus', async (req,res)=>{
     
     //await docRef.set({ 'menuItem': 5,  cartCount :6, cs:7});
 /*
-    let dick = await docRef.get();
-    dick.forEach(balls=>{
-        console.log(balls)
+    let d = await docRef.get();
+    d.forEach(b =>{
+        console.log(b)
     })
 */
 
