@@ -1,0 +1,127 @@
+
+*{
+    max-width: 100%;
+}
+
+.body{
+    padding: 24px 0;
+    background-color: #EDEDED;
+}
+
+.circular{
+    border-radius: 25px !important;
+}
+
+.card{
+   /* background-color: #FF5349 !important;
+    font-family: Roboto;
+    background: linear-gradient(#FF5349,#5e211d );
+*/
+    background-color: #f05454 !important;
+    color: white;
+}
+
+.card-img-top {
+    padding: 3px;
+}
+
+.addCart{
+    font-weight:625;
+    margin: 0 0 5px 5px;
+}
+
+.card-body {
+    padding: 1px 0 3px 10px;
+}
+
+.card-title{
+    font-weight:625;
+}
+
+.cardPrice{
+    display: inline-block;
+    font-size: 175%;
+    margin-left: 10%;
+}
+
+.filter::-webkit-scrollbar{
+    display: none;
+}
+
+.filterWrapper{
+    border: 3px solid #FF5349;
+}
+
+.filter{
+    margin: 0 12px;
+    text-align: center;
+}
+
+.Arrows {
+    background-color: #FF5349;
+    height: 42px;
+    width: 12px;
+    padding-top: 6px;
+}
+
+.navArrowRight {
+    padding-left: 2px;
+}
+
+.fish {
+    margin: 0 3px;
+}
+
+.row{
+    margin-bottom: 2%;
+}
+
+.saveChangeBtn{
+    background-color: #FF5349;
+    font-weight:625;
+}
+
+.modal-content{
+    color: black !important;
+    
+}
+
+.modal-body{
+    background-color: whitesmoke !important;
+}
+
+.modal-header-item{
+    background: linear-gradient(#FF5349,#5e211d );
+    color: white;
+}
+
+.modal-header{
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.btn-close{
+    background-color: white;
+}
+.radioBackground{
+    background-color: white;
+}
+
+/*
+.card-text{
+    display: none !important;
+}
+.card-body:hover .card-text{
+    display: inline-block !important;
+    padding-right: 5vw;
+}
+ALSO MAYBE TAKE OUT CLOSE BUTTONS
+*/
+
+    /*
+    
+    .card-img-top{
+        height: 65%;
+        width: 99%;
+    }
+    */

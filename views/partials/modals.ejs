@@ -1,0 +1,176 @@
+
+<div class="row gap-4 g-0 justify-content-center">
+    <% menu.forEach(menus => { %> <!-- for each result from db-->
+        
+        <% let menusNameString = menus.name.split(" ").join("") %>              <!-- changing which modal the add to carrt button points to. split and join functions get rid of spaces because-->
+                                                                                <!-- by getting rid of white spaces you can use as id value in html for modals to point to-->
+        <div class="card circular border shadow col-lg-3 col-md-4 p-2" style="width: 18rem;">
+            <img src="/Fried.jpg" class="card-img-top circular" alt="DW BOUT IT" role="button" data-bs-toggle="modal" data-bs-target="#a<%=menusNameString%>">
+            <div class="card-body">
+                <h5 class="card-title"><%= menus.name %> </h5> <!--adds name, descrption and price (all the way at the bottom) to card-->
+                <p class="card-text"><%= menus.itemChoice[0].description %> </p>
+            </div>
+            <div class="cardFooter">
+                <button type="button" class="btn btn-light circular addCart" data-bs-toggle="modal" data-bs-target="#a<%=menusNameString%>">ADD TO CART</button>
+                  
+                  <!-- Modal -->                  <!-- unique id for each modal so a 1 speicific button points to 1 specific modal-->
+                <div class="modal fade" id="a<%=menusNameString%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-item">
+                                <h5 class="modal-title"><%= menus.name %></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+    
+                            <form class="addToCartForm" action="" method=""> <!--wraps modal price, picture, qty in form so when addtocart button is clicked, it sends the info to checkour page-->
+    
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="radioBackground shadow">
+                                            <% if(menus.itemChoice.length > 0) { %> <!--loads up all item choices with price, and name as radios. also loads description (whether its 1, 2 or 10. since each modal is unique, it'll depend on how many choices an item has)-->
+                                                <% let j=0%>
+                                                <% menus.itemChoice.forEach(menuItems => { %> 
+                                                    <div class="mb-2"> 
+                                                        <input class="form-check-input modalRadioSelection" required type="radio" name="itemName" id="f<%=menusNameString+j%>" value="<%= menuItems.name %>-<%=menus.name%>-<%= menuItems.price.toFixed(2)%>" >
+                                                        <label class="form-check-label fw-bold" for="f<%=menusNameString+j%>"> <%= menuItems.name %> - $<span class="menuItemsPrice"><%= menuItems.price.toFixed(2)%></span></label> 
+                                                        <label class="fish" for=""><%= menuItems.description %> </label>
+                                                    </div>
+                                                    <hr>
+                                                    <% ++j %> 
+                                                <% }); %> 
+                                            <% } %> 
+                                        </div>
+    
+                                    <% if(menus.flavor.length > 0) { %> <!-- if there are flavors on db item, load them as a drop down form. wont run if db item doesnt have customizations -->
+                                        <div class="mb-3 shadow">
+                                            <div class="form-floating">
+                                                <select required class="form-select flavor" aria-label="Floating label select example">
+                                                    <option value="" disabled hidden selected>Select One</option>
+                                                    <% menus.flavor.forEach(menuItemsFlavor => { %> 
+                                                    <option value="<%= menuItemsFlavor %>"><%= menuItemsFlavor %></option>
+                                                    <% }); %> 
+                                                </select>
+                                                <label for="floatingSelect">Flavors</label>
+                                            </div>
+                                        </div>
+                                    <% } %> 
+                                    
+                                    <div class="radioBackground shadow">
+
+                                        <% if(menus.sauce.length > 0) { %> 
+                                            <% menus.sauce.forEach(sauce => { %> 
+                                                <div class="mb-3 form-check">
+                                                    <input type="checkbox" class="form-check-input sauce" id="e<%=menusNameString+sauce %>" value="<%=sauce%>" name=sauce>
+                                                    <label class="form-check-label" for="e<%=menusNameString+sauce%>"><%=sauce%></label>
+                                                </div>
+                                            <% }); %>
+                                        <% } %>  
+                                    </div>
+                                                
+                                        <div class="radioBackground shadow">
+    
+                                            <% menus.itemChoice.forEach(menuItems => { %> <!--if there are customizations on db item, load them as checklist. wont run if db item doesnt have customizations -->
+                                                <% if(menuItems.customization.length > 0) { %> 
+                                                    <% menuItems.customization.forEach(menuItemsCustom => { %> 
+                                                        <div class="mb-3 form-check">
+                                                            <input type="checkbox" class="form-check-input checks" id="e<%=menusNameString+menuItemsCustom %>" value="<%=menuItemsCustom%>" name=toppings disabled>
+                                                            <label class="form-check-label" for="e<%=menusNameString+menuItemsCustom%>"><%=menuItemsCustom%></label>
+                                                        </div>
+                                                    <% }); %>
+                                                <% } %> 
+
+                                                <% if(menuItems.comboDrinks.length > 0) { %> <!-- if there is a db item with array of drinks (combos that come with drinks), load them as a drop down form. wont run if db item doesnt have array of drinks (comboDrinks in DB)-->
+                                                    <div class="mb-3 shadow">
+                                                        <div class="form-floating">
+                                                            <select required disabled class="form-select comboDrinkSelect" aria-label="Floating label select example">
+                                                                <option value="" disabled selected>Select One</option>
+                                                                <% menuItems.comboDrinks.forEach(menuComboDrinks => { %> 
+                                                                <option value="<%= menuComboDrinks %>"><%= menuComboDrinks %></option>
+                                                                <% }); %> 
+                                                            </select>
+                                                            <label for="floatingSelect">Drinks</label>
+                                                        </div>
+                                                    </div>
+                                                <% } %> 
+
+                                                <% if(menuItems.comboSides.length > 0) { %> <!-- if there is a db item with array of drinks (combos that come with drinks), load them as a drop down form. wont run if db item doesnt have array of drinks (comboDrinks in DB)-->
+                                                    <div class="mb-3 shadow">
+                                                        <div class="form-floating">
+                                                            <select required disabled class="form-select comboSidesSelect" aria-label="Floating label select example">
+                                                                <option value="" disabled selected>Select One</option>
+                                                                <% menuItems.comboSides.forEach(menuComboSides => { %> 
+                                                                <option value="<%= menuComboSides %>"><%= menuComboSides %></option>
+                                                                <% }); %> 
+                                                            </select>
+                                                            <label for="floatingSelect">Sides</label>
+                                                        </div>
+                                                    </div>
+                                                <% } %> 
+                                                    
+                                            <% }); %>
+                                                        
+                                        </div>
+                                    </div>
+                                </div> 
+    
+                                <div class="modal-footer"> <!--adds +,-,qty, save changes and price to bottom of modal -->
+                                    <h3 class="d"> $ <span class="modalPrice"><%= menus.itemChoice[0].price.toFixed(2) %> </span></h3>
+                                    <button type="button" class="minus btn fw-bold btn-primary">-</button>
+                                    <p class="qty fw-bold">1</p>
+                                    <button type="button" class="add btn fw-bold btn-primary">+</button>
+                                    <button type="submit" class="btn saveChangeBtn">Save changes</button>
+                                </div>
+    
+                            </form>
+                        </div> 
+                    </div>
+                </div>
+                <!--adds price to card -->
+                <h5 class="cardPrice">$<%= menus.itemChoice[0].price.toFixed(2) %> </h5>
+            </div>
+        </div>
+    <% });  %> 
+</div>
+
+
+<div class="modal fade modalStuff" id="signUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">SIGN IN OR CONTINUE AS GUEST</h5>
+            </div>
+
+            <div class="modal-body">
+
+                <form class="signIn" action="" method="">
+                    <div class=" singInWrapper position-relative">
+                        <h3>SIGN IN</h3>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email" aria-label="email" id="email" name="SignInUsername" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Password" aria-label="password" id="password" name="signInPassword" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary signInSubmit">Log In</button>
+                </form>
+                <hr>
+                <form class="continueGuest" action="" method="">
+                    <h3>CONTINUE AS GUEST</h3>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="First Name" aria-label="First Name" id="firstName" name="First Name" required>
+                        <input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name" id="lastName" name="Last Name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary guestSubmit">CONTINUE AS GUEST</button>
+                </form>
+
+                <div class="modal-footer">
+                    <h5><a href="http://localhost:3000/#signUpMain"> Sign up </a></h5>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

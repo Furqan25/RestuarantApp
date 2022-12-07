@@ -1,0 +1,48 @@
+/*Using public instead of static*/
+input {
+    width: 50% !important;
+    margin-left: 21rem;
+    margin-right: 10rem;
+    padding: .5rem;
+    background: rgb(0 0 0 / 15%);
+    /* border: black; */
+    border: none;
+}
+
+.custombtn {
+    width: 20% !important;
+    margin-left: 33.5rem !important;
+    margin-top: 25px;
+}
+
+.userlabel {
+    font-weight: 500;
+    font-size: 25px;
+    color: #0d6efd;
+}
+
+.passlabel {
+    font-weight: 500;
+    font-size: 25px;
+    color: #0d6efd;
+}
+
+.heads {
+    color: #0d6efd;
+    padding-bottom: 20px;
+    padding-top: 25px;
+}
+
+.err {
+    font-size: 15px;
+    color: red;
+    width: 20% !important;
+    margin-left: 33.75rem !important;
+    margin-bottom: 10px !important;
+}
+
+.reset {
+    /* margin-right: 66px; */
+    padding-right: 45px;
+    padding-top: 10px;
+}

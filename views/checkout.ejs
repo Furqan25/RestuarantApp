@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script type="module" src="../partials/cart.js" async></script>
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <div class="container">
+        <div class="heading row">
+            <h1>YOUR CART</h1>
+            <div class="heading-line"></div>    
+        </div>
+        <div class="details row">
+            <div class="details-content col-8">
+                <h3>Order Details</h3>
+                <div class="row">
+                    <button type="button" class="btn btn-danger rounded-pill col-6 opt-btn">Pickup</button>
+                    <!-- <button type="button" class="btn btn-danger rounded-pill col-6 opt-btn">Delivery</button> -->
+                    <button type="button" class="btn btn-danger rounded-pill col-6 opt-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delivery
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Enter your address below:</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="address1">Street Address: </label>
+                                            <input name="address1" type="text" placeholder="Type your address" value="">
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="address2">apt/floor: </label>
+                                            <input name="address2" type="text" placeholder="ex: 3/2nd/A" value="">
+                                        </div>      
+                                        <div class="col-4">
+                                            <label for="city">City: </label>
+                                            <input name="city" type="text" placeholder="ex: Brooklyn" value="">
+                                        </div>      
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="address3">State: </label>
+                                            <input name="address3" type="text" placeholder="ex: New York" value="">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="address4">ZipCode: </label>
+                                            <input name="address4" type="text" placeholder="ex: 10461" value="">
+                                        </div>      
+                                    </div>
+
+                                    <div class="row">
+                                        <label for="phoneNumber"></label>
+                                        <input name="phoneNumber" type="text" placeholder="ex: (xxx)-xxx-xxxx">
+                                    </div>
+
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="address row">
+                    <!--By default let it be pickup, then let a modal come when pressed delivery-->
+                    <p class="fw-bold fs-5 col-6">Delivery Address</p>
+                    <p class="col-5 delivery-address"></p>
+                </div>
+                <div class="heading-line"></div>
+            </div>
+        </div>
+        <!--adding maps-->
+        <div class="card col-4 text-start" style="width: 18rem;">
+            <img src="images/card.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">3127 Fulton St, Brooklyn, NY</h5>
+                <p class="card-text">(718)513-0174</p>
+                <a href="https://goo.gl/maps/6FsmiG7R5q3HbiFP6" class="btn btn-primary">GET DIRECTIONS</a>
+            </div>
+        </div>   
+        <div class="method row">
+            <div class="method-content col-8">
+                <h3>Payment Method</h3>
+                <div class="row">
+                    <button type="button" class="btn btn-danger rounded-pill col-6 opt-btn">Cash</button>
+                    <button type="button" class="btn btn-danger rounded-pill col-6 opt-btn credit">Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="checkoutItems"></div>
+    <form class="hidden" id="payment-form" action="" method=""">
+        <input type="email" id="email" placeholder="Enter email address" required/>
+        <div id="payment-element">
+            <!--Stripe.js injects the Payment Element-->
+        </div>
+        <button id="submit" class="payNow d-none">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+    </form>
+    
+    
+</body>
+<script src="https://js.stripe.com/v3/" async></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kennedy Fried Chicken</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="/landing.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script src="https://kit.fontawesome.com/50521b443a.js" crossorigin="anonymous"></script>
+    <script type="module" src="../partials/auth.js" async></script>  
+</head>
+<body>
+
+  <%- include('./partials/navbar.ejs')  %>    
+
+  <!-- MENU ITEMS -->
+    <div class="menuItems">
+        <div class="container">
+            <div class="row">
+
+                <!-- CARD 1: FRIED CHICKEN -->
+                <div class="col-6 col-md-3">
+                    <div class="card cardMenu circular shadow">
+                        <a href="/menu/Fried Chicken">
+                            <img class="card-img-top menuImg circular" src="images/brian-chan-NbXjZomyNEM-unsplash.jpg" alt="...">
+                            <div class="card-body text-center cardText">
+                                <p class="fw-bold text-black">Fried Chicken!</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- CARD 2: PIZZA -->
+                <div class="col-6 col-md-3">
+                    <div class="card cardMenu circular shadow">
+                        <a href="/menu/Pizza">
+                            <img class="card-img-top menuImg circular" src="images/alan-hardman-SU1LFoeEUkk-unsplash.jpg" alt="...">
+                            <div class="card-body text-center cardText">
+                                <p class="fw-bold text-black">Pizza!</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- CARD 3: BURGERS -->
+                <div class="col-6 col-md-3 XS-Pad">
+                    <div class="card cardMenu circular shadow">
+                        <a href="/menu/Burger">
+                            <img class="card-img-top menuImg circular" src="images/amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg" alt="...">
+                            <div class="card-body text-center cardText">
+                                <p class="fw-bold text-black">Burgers!</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- CARD 4: SIDES -->
+                <div class="col-6 col-md-3 XS-Pad">
+                    <div class="card cardMenu circular shadow">
+                        <a href="/menu/Sides">
+                            <img class="card-img-top menuImg circular" src="images/louis-hansel-vi0kZuoe0-8-unsplash.jpg" alt="...">
+                            <div class="card-body text-center cardText">
+                                <p class="fw-bold  text-black">Sides!</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>  
+
+    <!-- CALL TO ACTION 1 -->
+    <div class="parallaxTop position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="card callToAction circular">
+                        <form class="card-body auths" id="authForm" action="" method="">
+                            <h1 class="text-white">SIGN UP FOR SPECIAL OFFERS AND PROMOSSIONS</h1>
+                            <div class="singinWrapper position-relative">
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="email" name="email" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="password" name="password" required>
+                                </div>
+                                <a href="http://localhost:3000/forgotPassword" class="btn btn-link flex reset text-white position-absolute end-0">FORGOT PASSWORD?</a>
+                            </div>
+                            <br>
+                            <div class="container">
+                                <div class="row loginWrapper">
+                                    <div class="col text-center">
+                                        <button type="submit" class="loginBtn btn fw-bold circular text-white">Log In</button>     
+                                    </div>
+                                </div>
+                                <br>
+                            
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <button type="button" class="custombtn signUpModalCaller btn text-white" id="signUpMain" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="button" class="custombtn btn logOut">Log Out</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+
+                                <form class="card-body signUp" action="" method="">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Sign Up</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <div class=" singUpWrapper position-relative">
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" placeholder="Username" aria-label="SignUpUsername" id="signUpUsername" name="SignUpUsername" required>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <input type="email" class="form-control" placeholder="Email" aria-label="signUpEmail" id="signUpEmail" name="signUpEmail" required>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <input type="password" class="form-control" placeholder="Password: 6 Characters minimum" aria-label="signUpPassword" id="signUpPassword" name="signUpPassword"   title="6 characters minimum" required>
+                                                </div>
+                                                <p class="opacity-75">Use a mix of characters(a-z/A-Z) and symbols ()</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary signUpButton">Sign Up</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTAINS THE CTA FOR DOWNLOADING THE APPLICATION AND WILL CONTAIN THE IPHONE TO LEFT HAND SIDE -->
+        <div class="parallaxBottom position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <h1 class="fw-bold">COMING SOON!</h1>
+                        <br>
+                        <h5 class="fw-bold">AVAILABLE ON:</h5>
+                        <div class="container">
+                            <div class="row d-inline">
+                                <a href="">
+                                    <img class="badges d-inline" src="/images/apple-app-store-badge.svg" alt="Download on the App Store">
+                                </a>
+                                <a href="">
+                                    <img class="badges d-inline" src="/images/google-play-badge.svg" alt="Get it on Google Play">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PARALLAX IPHONE WITH LOGO AND DOWNWARD ANIMATION -->
+        <div class="parallaxPhone position-absolute top-0 end-0 rellax" data-rellax-speed="-3">
+            <img class="iphone" src="/images/iPhone+LogoOriginal+CS copy.png" alt=".iphone">
+        </div>
+    </div>
+    
+    <div class="aboutUs text-white position-relative">
+        <!-- ENTIRE ABOUT-US -->
+        <div class="container">
+            <div class="row">
+                <!-- SPLIT CONTAINER IN 2 -->
+                <div class="col-md-6 col-sm-12">
+                    <div class="row">
+                        <!-- SPLIT TOP LEFT HALF IN FOURTHS -->
+                        <div class="col-6 padTop2">
+                            <h4 class="fw-bold">OPEN ON:</h4>
+                        </div>
+                        <div class="col-3 logoDiv">
+                            <img class="logo1" src="/images/11-29-21_KFC_Logo_404x168.png" alt="logo...">
+                        </div>
+                    </div>
+                    <!-- BOTTOM LEFT HALF -->
+                    <div class="row fw-bold">
+                        <!-- SPLIT BOTTOM LEFT IN FOURTHS -->
+                        <div class="col-6">
+                            <p class="lh-sm">MONDAY</p>
+                            <p class="lh-sm">TUESDAY</p>
+                            <p class="lh-sm">WEDNESDAY</p>
+                            <p class="lh-sm">THURSDAY</p>
+                            <p class="lh-sm">FRIDAY</p>
+                            <p class="lh-sm">SATURDAY</p>
+                            <p class="lh-sm">SUNDAY</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="lh-sm">10:00 am - 3:00 am</p>
+                            <p class="lh-sm">10:00 am - 3:00 am</p>
+                            <p class="lh-sm">10:00 am - 3:00 am</p>
+                            <p class="lh-sm">10:00 am - 3:00 am</p>
+                            <p class="lh-sm">10:00 am - 5:00 am</p>
+                            <p class="lh-sm">10:00 am - 5:00 am</p>
+                            <p class="lh-sm">10:00 am - 3:00 am</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- TOP RIGHT HALF -->
+                <div class="col-md-6 col-sm-12 padTop2">
+                    <div class="row">
+                        <!-- SPLIT TOP RIGHT IN 1/3s -->
+                        <div class="col-4">
+                            <img class="halal" src="/images/11-29-21_KFC_Halal-Symbol_107x107.png" alt="halal...">
+                        </div>
+                        <div class="col-3 ">
+                            <p class="lh-sm">Chicken</p>
+                            <p class="lh-sm">Sandwich</p>
+                            <p class="lh-sm">Kebab</p>
+                        </div>
+                        <div class="col-3">
+                            <p class="lh-sm">Burger</p>
+                            <p class="lh-sm">Dessert</p>
+                            <p class="lh-sm">Combos</p>
+                        </div>
+                        <div class="col-2">
+                            <p class="lh-sm">Gyro</p>
+                            <p class="lh-sm">Pizza</p>
+                            <p class="lh-sm">Fish</p>
+                        </div>
+                    </div>
+                    <!-- BOTTOM RIGHT HALF -->
+                    <div class="padTop2">
+                        <h2 class="text-md-start text-center">3127 Fulton St.</h2>
+                        <h2 class="text-md-start text-center">Brooklyn,NY 11208</h2>
+                        <h2 class="text-md-start text-center">718-513-0174</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Call to Action to Sign Up or Download the app -->
+    <div class="secondCallToAction position-relative text-white">
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-lg-5 col-md-12 finalCallToAction d-inline">
+                    <a href="#authForm">
+                        <h4 class="signInBtn d-inline circular CTA1 text-white">SIGN IN</h4>
+                    </a>
+                    <h6 class="d-inline CTA1">OR</h4>
+                    <h4 class="signUpBtn circular d-inline CTA1 text-white" data-bs-toggle="modal" data-bs-target="#signUpModal" role="button">SIGN UP</h3>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 M-Pad padTop05">
+                    <h5>DOWNLOAD OUR APP!</h5>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 d-inline M-Pad XS-Pad">
+                    <a href="">
+                        <img class="badges appleBadge d-inline" src="/images/apple-app-store-badge.svg" alt="Download on the App Store">
+                    </a>
+                    <a href="">
+                        <img class="badges googleBadge d-inline" src="/images/google-play-badge.svg" alt="Get it on Google Play">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="text-white position-relative">
+        <h6>ALL RIGHTS RESERVED BY KENNEDY FRIED CHIECKEN AND PIZZA</h6>
+        <!-- Google Play and the Google Play logo are trademarks of Google LLC. -->
+    </footer>
+
+    <!-- TAG IN CASE CDN IS PREFERRED -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script> -->
+    <script src="../partials/rellax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script>
+        // Accepts any class name
+        let rellax = new Rellax('.rellax');
+    </script>
+</body>
+
+</html>

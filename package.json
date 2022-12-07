@@ -1,0 +1,26 @@
+{
+  "name": "cfc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "firebase": "^9.1.1",
+    "firebase-admin": "^10.2.0",
+    "mongoose": "^5.13.9",
+    "nodemon": "^2.0.16",
+    "stripe": "^8.216.0",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "na"
+}
